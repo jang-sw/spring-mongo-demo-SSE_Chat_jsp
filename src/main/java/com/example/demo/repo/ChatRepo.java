@@ -13,7 +13,7 @@ public interface ChatRepo extends ReactiveMongoRepository<ChatDocument, String>{
 
 	
 	@Tailable
-	@Query("{sender:?0, receiver:?1}")
-	Flux<ChatDocument> findByUserOrderByCreatedDesc(String sender, String receiver);
+	@Query("{room:?0}")
+	Flux<ChatDocument> findByRoomOrderByCreatedDesc(String room);
 	
 } 

@@ -14,8 +14,8 @@ public class ChatService {
 
 	@Autowired ChatRepo chatRepo;
 	
-	public Flux<ChatDocument> getChatting(String sender, String receiver){
-		return chatRepo.findByUserOrderByCreatedDesc(sender, receiver);
+	public Flux<ChatDocument> getChatting(String room){
+		return chatRepo.findByRoomOrderByCreatedDesc(room).switchIfEmpty(Flux.empty());
 	}
 	
 	public Mono<ChatDocument> saveMsg(ChatDocument chat){
