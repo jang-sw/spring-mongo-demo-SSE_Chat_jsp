@@ -5,3 +5,5 @@
 Initial Setup for Quick Start with Spring + MongoDB & Implementation of a simple chatting service using SSE for testing
 
 Spring + MongoDBでの迅速な開始のための初期設定 & テストのためのSSEを活用した簡単なチャットサービスの実装
+
+![image](https://github.com/user-attachments/assets/7bea8561-0034-45b2-8fdd-67cb3f19d827)
