@@ -23,11 +23,25 @@ public class ChatController {
 
 	@Autowired ChatService chatService;
 	
+	
+	/**
+	 * SSE 채팅 스트림 받기
+	 * 
+	 * @param room (pathVariable)
+	 * 
+	 **/
 	@GetMapping(value="/chatting/{room}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<ChatDocument> getChatting(@PathVariable String room){
 		return chatService.getChatting(room)
 				.subscribeOn(Schedulers.boundedElastic());
 	}
+	
+	/**
+	 * 채팅 메세지 보내기
+	 * 
+	 * @param chatDocument (msg, sender, room)
+	 * 
+	 **/
 	@PostMapping(value="/chatting")
 	public Mono<ChatDocument> sendChat(@RequestBody ChatDocument chatDocument){
 		chatDocument.setCreated(LocalDateTime.now());

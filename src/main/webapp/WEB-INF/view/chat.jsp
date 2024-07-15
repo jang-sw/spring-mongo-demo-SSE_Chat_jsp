@@ -102,6 +102,7 @@
 <body>
     <header>
         <h1>Mobile Chat </h1>
+        <span style="float: right;font-size: 13px; text-decoration: underline; cursor: pointer" onclick="location.href='/logout'" > logout</span>
     </header>
     <main id="chat-container">
         <!-- Chat messages will appear here -->
@@ -109,6 +110,7 @@
     <footer>
         <input id="message-input" type="text" placeholder="Type your message">
         <button id="send-button" onclick="sendMsg()">Send</button>
+        
     </footer>
     <script>
     	

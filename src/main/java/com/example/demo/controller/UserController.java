@@ -18,6 +18,11 @@ public class UserController {
 	
 	@Autowired UserService userService;
 	
+	/**
+	 * 회원 가입 요청 
+	 * 
+	 * @param user (username, pwd) 
+	 * */
 	@PostMapping(value="/join")
 	public Mono<ResponseEntity<Integer>> join(@RequestBody UserDocument user){
 		return userService.isDuplicateName(user.getUsername()) 
@@ -25,6 +30,11 @@ public class UserController {
 				Mono.just(ResponseEntity.ok(-1)) : userService.saveUser(user).thenReturn(ResponseEntity.ok(1)));
 	}	
 	
+	/**
+	 * 로그인 인증 
+	 * 
+	 * @param user (username, pwd) 
+	 * */
 	@PostMapping(value="/login")
 	public Mono<ResponseEntity<Integer>> login(@RequestBody UserDocument user, HttpServletRequest httpServletRequest){
 		return userService.login(user)

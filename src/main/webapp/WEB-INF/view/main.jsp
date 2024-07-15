@@ -147,6 +147,7 @@
                 <input type="text" id="room" name="room" required>
             </div>
             <button type="submit"  >Join Room</button>
+            <button type="button" onclick="location.href='/logout'">Logout</button>
         </form>
     </div>
 
